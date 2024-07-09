@@ -7,11 +7,19 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Install LLMStack dependencies
-RUN pip install llmstack
+# Install pip and other dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 # Expose port 3000
 EXPOSE 3000
 
 # Run LLMStack when the container launches
 CMD ["llmstack"]
+
