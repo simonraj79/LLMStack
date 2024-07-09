@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     libpq-dev \
     pkg-config \
-    libmysqlclient-dev \
+    libmariadb-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /app
