@@ -21,3 +21,6 @@ docker-compose.dev.yml
 nginx
 tests
 web
+__pycache__
+*.pyc
+.git
